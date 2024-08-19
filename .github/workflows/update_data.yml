@@ -35,4 +35,4 @@ jobs:
         git config --global user.email 'github-actions@github.com'
         git add t10y2y_data.json
         git diff --cached --quiet || git commit -m "Update T10Y2Y data"
-        git push
+        git push -v
