@@ -33,6 +33,7 @@ jobs:
       run: |
         git config --global user.name 'github-actions'
         git config --global user.email 'github-actions@github.com'
+        git pull origin main  # リモートリポジトリから最新の変更を取得
         git add t10y2y_data.json
         git commit -m "Update T10Y2Y data"
-        git push
+        git push origin main
