@@ -1,9 +1,9 @@
 name: Update FRED Data
 
 on:
-  workflow_dispatch:  # 手動トリガーの設定
+  workflow_dispatch: # 手動実行用のトリガー
   schedule:
-    - cron: '0 0 * * *'  # 毎日午前0時に実行
+    - cron: '0 0 * * *' # 毎日午前0時に実行
 
 jobs:
   update-data:
@@ -34,3 +34,4 @@ jobs:
         git add t10y2y_data.json
         git commit -m "Update T10Y2Y data"
         git push
+
