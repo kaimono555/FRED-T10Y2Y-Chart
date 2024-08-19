@@ -1,9 +1,9 @@
 name: Update FRED Data
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: 
   schedule:
-    - cron: '0 0 * * *'  # 毎日午前0時に実行
+    - cron: '0 0 * * *' 
 
 jobs:
   update-data:
@@ -12,11 +12,16 @@ jobs:
     steps:
     - name: Check out the repository
       uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
 
     - name: Set up Python
       uses: actions/setup-python@v3
       with:
         python-version: '3.x'
+
+    - name: Enable Debug Logging
+      run: echo "ACTIONS_RUNNER_DEBUG=true" >> $GITHUB_ENV
 
     - name: Install dependencies
       run: |
@@ -27,7 +32,7 @@ jobs:
       run: |
         python fred_t10y2y_data_2.py
 
-    - name: Commit and push changes if there are any
+    - name: Commit and push changes
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
