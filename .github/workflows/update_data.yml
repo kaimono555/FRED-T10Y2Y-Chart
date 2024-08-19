@@ -28,10 +28,11 @@ jobs:
         python fred_t10y2y_data_2.py
 
     - name: Commit and push changes
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         git config --global user.name 'GitHub Actions'
         git config --global user.email 'actions@github.com'
         git add t10y2y_data.json
         git commit -m "Update T10Y2Y data"
         git push
-
