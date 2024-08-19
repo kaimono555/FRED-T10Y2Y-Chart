@@ -1,6 +1,7 @@
 name: Update FRED Data
 
 on:
+  workflow_dispatch:  # 手動トリガーの設定
   schedule:
     - cron: '0 0 * * *'  # 毎日午前0時に実行
 
